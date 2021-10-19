@@ -1,0 +1,5 @@
+.profile__info{
+    margin: 22px 0 25px 30px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
