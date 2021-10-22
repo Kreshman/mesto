@@ -8,3 +8,10 @@
     color: #fff;
     grid-column: 1/2;
 }
+@media (max-width: 520px){
+    .profile__title{
+        font-size: 27px;
+        line-height: 33px;
+        text-align: center;
+    }
+}

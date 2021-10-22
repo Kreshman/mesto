@@ -2,3 +2,8 @@
     max-width: 880px;
     margin: 45px auto 0;
 }
+@media (max-width: 320px){
+    .header__container{
+        margin: 28px auto 0;
+    }
+}

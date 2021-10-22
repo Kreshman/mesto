@@ -11,5 +11,6 @@
         grid-template-columns: 1fr;
         column-gap: 0px;
         max-width: 282px;
+        margin: 0 auto;
     }
 }
