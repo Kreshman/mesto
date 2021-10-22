@@ -13,5 +13,7 @@
     .popup-edit__title{
         font-size: 18px;
         line-height: 22px;
+        width: 238px;
+        margin: 26px auto 0;
     }
 }
