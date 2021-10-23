@@ -1,14 +1,14 @@
 .popup-edit__close{
-    background-image: url(../../../img/Close-Icon.svg);
+    background: transparent url(../../../img/Close-Icon.svg);
     width: 32px;
     height: 32px;
     border:none;
     background-size: cover;
-    background-color: black;
     position: absolute;
     top: -40px;
     right: -40px;
     cursor: pointer;
+    padding: 0;
 }
 .popup-edit__close:hover{
     opacity: 0.6;
@@ -20,4 +20,4 @@
         width: 20px;
         height: 20px;
     }
-}
+} 

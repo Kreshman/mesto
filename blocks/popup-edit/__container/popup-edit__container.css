@@ -1,5 +1,5 @@
 .popup-edit__container{
-    margin: 195px auto 0;
+    margin: auto ;
     padding: 0 36px;
     display: flex;
     flex-direction: column;
@@ -14,7 +14,7 @@
 @media (max-width:336px){
     .popup-edit__container{
         max-width: 282px;
-        margin: 123px auto 0;
+        margin: auto;
         padding: 0 22px;
         max-height: 322px;
     }

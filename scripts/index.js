@@ -33,12 +33,12 @@ switchLike.forEach(element=>{ // выполняем функцию 1 раз дл
 element.addEventListener('click', function() { // остлеживаем функцию на выполнение клика
     image = element.getAttribute('src');// запросили атрибут и присовили image 
     if (image === './img/like.svg') {
-            element.removeAttribute('src');
-            element.setAttribute('src', './img/blacklike.svg');// отключаем отрибут и подключаем новый
-        } else {
-            element.removeAttribute('src');
-            element.setAttribute('src', './img/like.svg');
-        }
+        element.removeAttribute('src');
+        element.setAttribute('src', './img/blacklike.svg');// отключаем отрибут и подключаем новый
+    } else {
+        element.removeAttribute('src');
+        element.setAttribute('src', './img/like.svg');
+    }
 })
 })
 
