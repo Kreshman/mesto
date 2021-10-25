@@ -1,46 +1,66 @@
-//Открытие-Закрытие попап
 const popupElement = document.querySelector('.popup-edit');
 const popupOpenButtonElement = document.querySelector('.profile__edit');
 const popupCloseButtonElement = popupElement.querySelector('.popup-edit__close');
-const togglePopupVisibility = function(){
-    popupElement.classList.toggle('popup-edit_is-opened');
-};
-popupOpenButtonElement.addEventListener('click', togglePopupVisibility);
-popupCloseButtonElement.addEventListener('click', togglePopupVisibility);
-
-// Копирование строчек
 const profileElementFirstname = document.querySelector('.profile__title'); // Текст FirstName
 const profileElementText = document.querySelector('.profile__subtitle'); // Текст subtitle 
-const popupEditFirstname = document.querySelector('.popup-edit__firstname'); // input FirstName 
-const popupEditText = document.querySelector('.popup-edit__text'); // input text
+const popupSaveButtonElement = document.querySelector('.popup-edit__save'); 
+const popupIdName = document.getElementById('name');
+const popupIdText = document.getElementById('text');
 
-popupEditFirstname.value = profileElementFirstname.textContent; // сохранили текст в input title
-popupEditText.value = profileElementText.textContent; // сохранили текст в input subtitle
+const addPopupVisibility = function(){
+    popupElement.classList.add('popup-edit_is-opened');
+    popupIdName.value = profileElementFirstname.textContent; 
+    popupIdText.value = profileElementText.textContent;
+};
 
-popupEditFirstname.oninput = function(){ // Сохранение текста в Html в title
-    profileElementFirstname.textContent = popupEditFirstname.value; // Сохранение текста в Html в title
+const removePopupVisibility = function(){
+    popupElement.classList.remove('popup-edit_is-opened');
+};
+
+const savePopup = function(){
+    profileElementFirstname.textContent = popupIdName.value;
+    profileElementText.textContent = popupIdText.value;
+    popupElement.classList.remove('popup-edit_is-opened');
 }
-popupEditText.oninput = function(){ // Сохранение текста в Html в subtitle
-    profileElementText.textContent = popupEditText.value; // Сохранение текста в Html в subtitle
-}
 
-const popupSaveButtonElement = document.querySelector('.popup-edit__save');
-popupSaveButtonElement.addEventListener('click', togglePopupVisibility); //закрыть popup при нажатии кнопки сохранить
-
-
-const switchLike = document.querySelectorAll('.elements__like'); // взяли список всех эллементов под массив
-switchLike.forEach(element=>{ // выполняем функцию 1 раз для всех элементов 
-element.addEventListener('click', function() { // остлеживаем функцию на выполнение клика
-    image = element.getAttribute('src');// запросили атрибут и присовили image 
-    if (image === './img/like.svg') {
-        element.removeAttribute('src');
-        element.setAttribute('src', './img/blacklike.svg');// отключаем отрибут и подключаем новый
-    } else {
-        element.removeAttribute('src');
-        element.setAttribute('src', './img/like.svg');
+document.addEventListener("click", event=>{
+    const element = event.target;
+    if(element.classList.contains("elements__like")) {
+    element.classList.toggle("elements__like_black")
     }
-})
-})
+});
+
+// Слушатели событий
+popupOpenButtonElement.addEventListener('click', addPopupVisibility);
+popupCloseButtonElement.addEventListener('click', removePopupVisibility);
+popupSaveButtonElement.addEventListener('click', savePopup); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Вариант 1
+// const switchLike = document.querySelectorAll('.elements__like'); // взяли список всех эллементов под массив
+// switchLike.forEach(element=>{ // выполняем функцию 1 раз для всех элементов 
+// element.addEventListener('click', function() { // остлеживаем функцию на выполнение клика
+//     image = element.getAttribute('src');// запросили атрибут и присовили image 
+//     if (image === './img/like.svg') {
+//         element.removeAttribute('src');
+//         element.setAttribute('src', './img/blacklike.svg');// отключаем отрибут и подключаем новый
+//     } else {
+//         element.removeAttribute('src');
+//         element.setAttribute('src', './img/like.svg');
+//     }
+// })
+// })
 
 // Вариант 2
 // Array.from(document.querySelectorAll('.elements__like') ).forEach( element => { //Создали массив из элементов, выполняем указанную функцию 1 раз для эл-ов массива, запускаем функцию, 
