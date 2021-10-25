@@ -7,8 +7,8 @@
     line-height: 22px;
     color: #fff;
     grid-column: 1/2;
-    text-overflow: ellipsis;   
-    white-space: nowrap;   
+    text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
 }
 @media (max-width: 520px){
