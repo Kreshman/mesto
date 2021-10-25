@@ -24,9 +24,9 @@ const savePopup = function(){
 }
 
 document.addEventListener("click", event=>{
-    const element = event.target;
-    if(element.classList.contains("elements__like")) {
-    element.classList.toggle("elements__like_black")
+    const switchLike = event.target;
+    if(switchLike.classList.contains("elements__like")) {
+        switchLike.classList.toggle("elements__like_black")
     }
 });
 
