@@ -1,11 +1,11 @@
 const popupElement = document.querySelector('.popup-edit');
 const popupOpenButtonElement = document.querySelector('.profile__edit');
 const popupCloseButtonElement = popupElement.querySelector('.popup-edit__close');
-const profileElementFirstname = document.querySelector('.profile__title'); // Текст FirstName
-const profileElementText = document.querySelector('.profile__subtitle'); // Текст subtitle 
-const popupSaveButtonElement = document.querySelector('.popup-edit__save'); 
+const profileElementFirstname = document.querySelector('.profile__title'); 
+const profileElementText = document.querySelector('.profile__subtitle'); 
 const popupIdName = document.getElementById('name');
 const popupIdText = document.getElementById('text');
+const saveAdd = document.getElementById('buttonsave');
 
 const addPopupVisibility = function(){
     popupElement.classList.add('popup-edit_is-opened');
@@ -20,20 +20,17 @@ const removePopupVisibility = function(){
 const savePopup = function(){
     profileElementFirstname.textContent = popupIdName.value;
     profileElementText.textContent = popupIdText.value;
-    popupElement.classList.remove('popup-edit_is-opened');
-}
-
-document.addEventListener("click", event=>{
-    const switchLike = event.target;
-    if(switchLike.classList.contains("elements__like")) {
-        switchLike.classList.toggle("elements__like_black")
-    }
-});
+    removePopupVisibility();
+};
 
 // Слушатели событий
 popupOpenButtonElement.addEventListener('click', addPopupVisibility);
 popupCloseButtonElement.addEventListener('click', removePopupVisibility);
-popupSaveButtonElement.addEventListener('click', savePopup); 
+saveAdd.addEventListener('click', savePopup);
+popupform.addEventListener('submit', (event)=>{
+    event.preventDefault();
+    console.log('Отправка формы')
+});
 
 
 
@@ -42,6 +39,14 @@ popupSaveButtonElement.addEventListener('click', savePopup);
 
 
 
+
+
+// document.addEventListener("click", event=>{
+//     //     const switchLike = event.target;
+//     //     if(switchLike.classList.contains("elements__like")) {
+//     //         switchLike.classList.toggle("elements__like_black")
+//     //     }
+//     // });
 
 
 
