@@ -1,9 +1,4 @@
 .elements__like_black{
     background:transparent url(../../../../img/blacklike.svg);
-    width: 22px;
-    height: 19px;
-    cursor: pointer;
-    border: none;
-    background-repeat: no-repeat;
 }
 

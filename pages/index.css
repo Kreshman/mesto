@@ -18,7 +18,6 @@
 @import url(../blocks/popup-edit/_is-opened/popup-edit_is-opened.css);
 @import url(../blocks/popup-edit/__form/popup-edit__form.css);
 @import url(../blocks/popup-edit/__title/popup-edit__title.css);
-@import url(../blocks/popup-edit/__firstname/popup-edit__firstname.css);
 @import url(../blocks/popup-edit/__text/popup-edit__text.css);
 @import url(../blocks/popup-edit/__save/popup-edit__save.css);
 @import url(../blocks/elements/elements.css);
@@ -29,3 +28,4 @@
 @import url(../blocks/elements/__like/elements__like.css);
 @import url(../blocks/elements/__like/_black/elements__like_black.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
+@import url(../blocks/footer/footer.css);
