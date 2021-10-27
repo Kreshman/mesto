@@ -5,7 +5,6 @@ const profileElementFirstname = document.querySelector('.profile__title');
 const profileElementText = document.querySelector('.profile__subtitle'); 
 const popupIdName = document.getElementById('name');
 const popupIdText = document.getElementById('text');
-const saveAdd = document.getElementById('buttonsave');
 
 const addPopupVisibility = function(){
     popupElement.classList.add('popup-edit_is-opened');
@@ -17,7 +16,8 @@ const removePopupVisibility = function(){
     popupElement.classList.remove('popup-edit_is-opened');
 };
 
-const savePopup = function(){
+const savePopup = function(event){
+    event.preventDefault();
     profileElementFirstname.textContent = popupIdName.value;
     profileElementText.textContent = popupIdText.value;
     removePopupVisibility();
@@ -26,11 +26,7 @@ const savePopup = function(){
 // Слушатели событий
 popupOpenButtonElement.addEventListener('click', addPopupVisibility);
 popupCloseButtonElement.addEventListener('click', removePopupVisibility);
-saveAdd.addEventListener('click', savePopup);
-popupform.addEventListener('submit', (event)=>{
-    event.preventDefault();
-    console.log('Отправка формы')
-});
+popupform.addEventListener('submit', savePopup);
 
 
 
