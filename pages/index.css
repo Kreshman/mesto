@@ -20,7 +20,10 @@
 @import url(../blocks/popup-edit/__title/popup-edit__title.css);
 @import url(../blocks/popup-edit/__text/popup-edit__text.css);
 @import url(../blocks/popup-edit/__save/popup-edit__save.css);
+@import url(../blocks/popup-editadd/popup-editadd.css);
+@import url(../blocks/popup-editadd/_is-opened/popup-editadd_is-opened.css);
 @import url(../blocks/elements/elements.css);
+@import url(../blocks/elements/__delete/elements__delete.css);
 @import url(../blocks/elements/__element/elements__element.css);
 @import url(../blocks/elements/__photo/elements__photo.css);
 @import url(../blocks/elements/__group/elements__group.css);

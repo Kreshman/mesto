@@ -1,0 +1,13 @@
+.elements__delete{
+    background: transparent url(../../../img/korzina.svg);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 18px;
+    height: 19px;
+    border: none;
+    cursor: pointer;
+}
+.elements__delete:hover{
+    opacity: 0.6;
+}

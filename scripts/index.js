@@ -5,6 +5,17 @@ const profileElementFirstname = document.querySelector('.profile__title');
 const profileElementText = document.querySelector('.profile__subtitle'); 
 const popupIdName = document.getElementById('name');
 const popupIdText = document.getElementById('text');
+const popupElementAdd = document.querySelector('.popup-editadd');
+const popupAddOpenButtonElement = document.querySelector('.profile__add');
+const popupAddCloseButtonElement = popupElementAdd.querySelector('.popup-edit__close')
+
+const addPopupAddVisibility = () => {
+    popupElementAdd.classList.add('popup-editadd_is-opened');
+}
+
+const removePopupAddVisibility = () => {
+    popupElementAdd.classList.remove('popup-editadd_is-opened');
+};
 
 const addPopupVisibility = function(){
     popupElement.classList.add('popup-edit_is-opened');
@@ -24,31 +35,29 @@ const savePopup = function(event){
 };
 
 // Слушатели событий
+popupAddOpenButtonElement.addEventListener('click', addPopupAddVisibility);
+popupAddCloseButtonElement.addEventListener('click', removePopupAddVisibility);
 popupOpenButtonElement.addEventListener('click', addPopupVisibility);
 popupCloseButtonElement.addEventListener('click', removePopupVisibility);
 popupform.addEventListener('submit', savePopup);
 
 
+document.addEventListener("click", event=>{
+    const switchLike = event.target;
+    if(switchLike.classList.contains("elements__like")) {
+        switchLike.classList.toggle("elements__like_black")
+    }
+});
 
+// Варинат 2
+// Array.from(document.querySelectorAll('.elements__like') ).forEach( element => { //Создали массив из элементов, выполняем указанную функцию 1 раз для эл-ов массива, запускаем функцию, 
+//     element.addEventListener( 'click', function(){ // отслеживаем клик по эллементу массива 
+//     const SwitchLike = this.classList.toggle('liked'); // присваивает классам метод toggle 
+//     this.src = SwitchLike ? './img/blacklike.svg' : './img/like.svg'; // присваивает новый путь значении src через toggle
+//     });
+// });
 
-
-
-
-
-
-
-// document.addEventListener("click", event=>{
-//     //     const switchLike = event.target;
-//     //     if(switchLike.classList.contains("elements__like")) {
-//     //         switchLike.classList.toggle("elements__like_black")
-//     //     }
-//     // });
-
-
-
-
-
-// Вариант 1
+// Вариант 3
 // const switchLike = document.querySelectorAll('.elements__like'); // взяли список всех эллементов под массив
 // switchLike.forEach(element=>{ // выполняем функцию 1 раз для всех элементов 
 // element.addEventListener('click', function() { // остлеживаем функцию на выполнение клика
@@ -63,10 +72,29 @@ popupform.addEventListener('submit', savePopup);
 // })
 // })
 
-// Вариант 2
-// Array.from(document.querySelectorAll('.elements__like') ).forEach( element => { //Создали массив из элементов, выполняем указанную функцию 1 раз для эл-ов массива, запускаем функцию, 
-//     element.addEventListener( 'click', function(){ // отслеживаем клик по эллементу массива 
-//     const SwitchLike = this.classList.toggle('liked'); // присваивает классам метод toggle 
-//     this.src = SwitchLike ? './img/blacklike.svg' : './img/like.svg'; // присваивает новый путь значении src через toggle
-//     });
-// });
+
+const itemTemplate = document.querySelector('.elements');
+const addButton = document.querySelector('.buttonsave');
+const inputName = document.getElementById('namenew');
+
+function main() {
+    items.forEach((element) => {
+        renderItem(element);
+    })
+    addButton.addEventListener('click', handleSubmit);
+}
+
+function renderItem(text) {
+    // 1.создаем разметку
+    const htmlElement = itemTemplate.content.cloneNode(true);
+    // 2. Заменяем разметку 
+    htmlElement.querySelector('.elements__title').innerText = text;
+    // 3. Вставляем в разметку в наш dom
+    list.appendChild(htmlElement);
+}
+
+function handleSubmit() {
+    const myValue = inputName.value;
+    renderItem(myValue);
+}
+
