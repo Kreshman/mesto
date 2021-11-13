@@ -1,56 +1,58 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
     <title>Место</title>
 </head>
+
 <body>
     <div class="page">
         <header class="header">
             <img src="./img/logo.svg" alt="Логотип" class="logo">
         </header>
         <main class="content">
-            <section class="profile">
+            <section class="profile open">
                 <div class="profile__container">
                     <div class="profile__info-container">
                         <img src="./img/avatar.jpg" alt="Аватар" class="profile__avatar">
                         <div class="profile__info">
                             <h1 class="profile__title">Жак-Ив Кусто</h1>
-                            <button type="button" class="profile__edit"></button>
+                            <button type="button" class="profile__edit open__popup"></button>
                             <p class="profile__subtitle">Исследователь океана</p>
                         </div>
                     </div>
-                    <button type="button" aria-label="Open" class="profile__add"></button>
+                    <button type="button" aria-label="Open" class="profile__add open__popup"></button>
                 </div>
             </section>
-            <div class="popup-edit">
+            <div class="popup popup-edit">
                 <div class="popup-edit__container">
-                    <button type="button" class="popup-edit__close"></button>
+                    <button type="button" class="popup-edit__close popup__close-profile"></button>
                     <h2 class="popup-edit__title">Редактировать профиль</h2>
                     <form name="popupform" class="popup-edit__form">
                         <input name="textname" type="text" class="popup-edit__text" id="name">
                         <input name="text" type="text" class="popup-edit__text" id="text">
                         <button type="submit" class="popup-edit__save" id="buttonsave">Сохранить</button>
-                    </form>    
+                    </form>
                 </div>
             </div>
-            <div class="popup-edit popup-editadd">
+            <div class="popup popup-editadd">
                 <div class="popup-edit__container">
-                    <button type="button" class="popup-edit__close"></button>
+                    <button type="button" class="popup-edit__close popup__close-card"></button>
                     <h2 class="popup-edit__title">Новое место</h2>
                     <form name="popupaddform" class="popup-editadd__form">
                         <input name="textname" type="text" placeholder="Название" class="popup-edit__text" id="namenew">
                         <input name="text" type="text" placeholder="Ссылка на картинку" class="popup-edit__text" id="link">
                         <button type="submit" class="popup-edit__save" id="buttonsavecard">Сохранить</button>
-                    </form>    
+                    </form>
                 </div>
             </div>
-            <div class="popup-edit popupimg">
+            <div class="popup popupimg">
                 <div class="popupimg__container">
                     <img src="#" alt="" class="popupimg__img">
-                    <button type="button" class="popup-edit__close"></button>
+                    <button type="button" class="popup-edit__close popup__close-img"></button>
                     <p class="popupimg__text"></p>
                 </div>
             </div>
@@ -74,4 +76,5 @@
     <script src="scripts/initial-cards.js"></script>
     <script src="scripts/index.js"></script>
 </body>
+
 </html>
