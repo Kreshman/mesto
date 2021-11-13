@@ -8,7 +8,7 @@ const popupOpenProfile = document.querySelector('.profile__edit');
 const popupOpenCard = document.querySelector('.profile__add');
 const popupOpenImg = document.querySelector('.elements__photo');
 // button элемент для закрытия попапа
-const PopupClose = document.querySelector('.popup-edit__close');
+const PopupClose = document.querySelector('.popup__close');
 const closePopupProfile = document.querySelector('.popup__close-profile');
 const closePopupCard = document.querySelector('.popup__close-card');
 const closePopupImg = document.querySelector('.popup__close-img');
@@ -25,7 +25,7 @@ const inputLink = document.getElementById('link');
 const saveCard = document.getElementById('buttonsavecard');
 const popupImg = document.querySelector('.popupimg__img');
 const popupImgText = document.querySelector('.popupimg__text');
-const popupImgClose = document.querySelector('.popup-edit__close');
+const popupImgClose = document.querySelector('.popup__close');
 
 function openisPopup(popup) {
     popup.classList.add('popup_is-opened');

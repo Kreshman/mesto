@@ -1,4 +1,4 @@
-/* .popup-edit__title{
+.popup__title{
     max-width: 330px;
     margin: 28px 0 19px;
     font-family: Inter, Arial, Helvetica, sans-serif;
@@ -9,10 +9,10 @@
     color: #000;
 }
 @media (max-width: 417px){
-    .popup-edit__title{
+    .popup__title{
         font-size: 18px;
         line-height: 22px;
         width: 238px;
         margin: 25px auto 45px;
     }
-} */
+}

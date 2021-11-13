@@ -1,4 +1,4 @@
-/* .popup-edit__container{
+.popup__container{
     margin: auto;
     padding: 0 36px;
     display: flex;
@@ -11,9 +11,9 @@
     position: relative;
 }
 @media (max-width:336px){
-    .popup-edit__container{
+    .popup__container{
         max-width: 282px;
         margin: auto;
         padding: 0 22px;
     }
-} */
+}
