@@ -12,11 +12,11 @@ const PopupClose = document.querySelector('.popup__close');
 const closePopupProfile = document.querySelector('.popup__close-profile');
 const closePopupCard = document.querySelector('.popup__close-card');
 const closePopupImg = document.querySelector('.popup__close-img');
-
 const profileElementFirstname = document.querySelector('.profile__title'); 
 const profileElementText = document.querySelector('.profile__subtitle'); 
 const popupIdName = document.getElementById('name');
 const popupIdText = document.getElementById('text');
+const formPopup = document.querySelector('.popup__form');
 const formPopupCards = document.querySelector('.popup-editadd__form');
 const itemTemplate = document.querySelector('.item_template');
 const cardsElements = document.querySelector('.elements');
@@ -154,7 +154,7 @@ popupOpenCard.addEventListener('click', () => {
 closePopupProfile.addEventListener('click', removePopupClick);
 closePopupCard.addEventListener('click', removePopupClick);
 closePopupImg.addEventListener('click', removePopupClick);
-popupform.addEventListener('submit', savePopup);
+formPopup.addEventListener('submit', savePopup);
 formPopupCards.addEventListener('submit', addCards);
 
 renderNewCards();
