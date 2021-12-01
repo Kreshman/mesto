@@ -22,17 +22,23 @@ const itemTemplate = document.querySelector('.item_template');
 const cardsElements = document.querySelector('.elements');
 const inputName = document.getElementById('namenew');
 const inputLink = document.getElementById('link');
-const saveCard = document.getElementById('buttonsavecard');
 const popupImg = document.querySelector('.popupimg__img');
 const popupImgText = document.querySelector('.popupimg__text');
 const popupImgClose = document.querySelector('.popup__close');
 
-function openisPopup(popup) {
+function openIsPopup(popup) {
     popup.classList.add('popup_is-opened');
+    closesPopupUseEsc(popup);
+}
+
+
+function closesPopupUseEsc(popup) {
     document.addEventListener('keydown', function (evt) {
-        if (evt.keyCode === 27) {
+        const esc = 27;
+        if (evt.keyCode === esc) {
             closesPopup(popup);
         }
+    document.removeEventListener('keydown', closesPopupUseEsc);
     });
 }
 
@@ -48,13 +54,13 @@ function closesPopup(popup) {
 };
 
 function removePopupClick(evt) {
-    const openidPopup = evt.target.closest('.popup_is-opened');
-    closesPopup(openidPopup);
+    const opensPopup = evt.target.closest('.popup_is-opened');
+    closesPopup(opensPopup);
 };
 
 
 const savePopup = function (event) {
-    // event.preventDefault();
+    event.preventDefault();
     profileElementFirstname.textContent = popupIdName.value;
     profileElementText.textContent = popupIdText.value;
     closesPopup(popupElementProfile);
@@ -82,7 +88,7 @@ function addNewCard() {
 
 //колбек самбита добавления карточек
 function addCards(event) {
-    // event.preventDefault();
+    event.preventDefault();
     addNewCard();
     closesPopup(popupElementCard);
 }
@@ -116,20 +122,24 @@ function renderOpenPopupImg(event) {
     popupImg.src = event.target.src;
     popupImg.alt = event.target.alt;
     popupImgText.textContent = event.target.alt;
-    openisPopup(popupElementImg);
+    openIsPopup(popupElementImg);
 }
 
 // Слушатели событий
 popupOpenProfile.addEventListener('click', () => {
     popupIdName.value = profileElementFirstname.textContent;
     popupIdText.value = profileElementText.textContent;
-    openisPopup(popupElementProfile);
+    openIsPopup(popupElementProfile);
 });
+
+const saveCard = document.getElementById('buttonsavecard');
 popupOpenCard.addEventListener('click', () => {
     inputName.value = '';
     inputLink.value = '';
-    openisPopup(popupElementCard);
+    // saveCard.setAttribute('disabled', true);
+    openIsPopup(popupElementCard);
 });
+
 closePopupProfile.addEventListener('click', removePopupClick);
 closePopupCard.addEventListener('click', removePopupClick);
 closePopupImg.addEventListener('click', removePopupClick);

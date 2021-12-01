@@ -1,8 +1,6 @@
-enableValidation();
 function enableValidation() { // Функция проверки на ВАЛИДНОСТЬ ФОРМ
     const forms = Array.from(document.querySelectorAll('.popup__form')); // Взяли все формы(объекты) в массив 
     forms.forEach(addListenersToForm); // ДЛЯ КАЖДОЙ ФОРМЫ БУДЕМ ПЕРЕДАВАТЬ МЕТОД (addListenersToForm)
-    const ss = Array.isArray(forms);
 }
 
 function addListenersToForm(form) { // ФУНКЦИЯ ДЛЯ РАБОТЫ С КАЖДОЙ ФОРМОЙ 
@@ -42,3 +40,4 @@ function handleFieldValidation(evt) {// ПРОВЕРКА ВАЛИДАЦИИ НА
     // element.classList.toggle('popup__input_state_invalid', !element.validity.valid); // ЕСЛИ НЕ ВАЛИДНАЯ ФОРМА ДОБАВИТЬ КЛАСС ЕСЛИ СТАЛА ВАЛИДНОЙ УБРАТЬ КЛАСС В СКОБКАХ НАЗВАНИЕ КЛАССА И УСЛОВИЕ
     errorContainer.textContent = element.validationMessage;// EСЛИ INPUT НЕ ВАДИЛЕН ВЫВЕСТИ В SPAN СООБЩЕНИЕ ОБ ОШИБКЕ ЧЕРЕЗ VALIDATIONMESSAGE*
 }
+enableValidation();
