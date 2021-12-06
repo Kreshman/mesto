@@ -30,35 +30,32 @@ function openIsPopup(popup) {
     const saveButtonElements = Array.from(document.querySelectorAll('.popup__save'));
     saveButtonElements.forEach(button => {
         button.classList.add('popup__save_state_invalid');
-        button.disabled = true; 
+        button.disabled = true;
     })
-    removePopupUseEsc(popup);
+    removePopup(popup);
 }
 
-function removePopupUseEsc(popup) {
-    document.addEventListener('keydown', useEsc);
-    function useEsc(evt) { 
+function removePopup(popup) {
+    document.addEventListener('keydown', useRemove);
+    popupElementCard.addEventListener('click', useRemove);
+    popupElementProfile.addEventListener('click', useRemove);
+    popupElementImg.addEventListener('click', useRemove);
+    function useRemove(evt) {
         const esc = 27;
-        if (evt.keyCode === esc) {
+        const openPopups = evt.target;
+        if (evt.keyCode === esc || evt.target === evt.currentTarget) {
             closesPopup(popup);
+            closesPopup(openPopups);
         }
-    document.removeEventListener('keydown', useEsc);
+        document.removeEventListener('keydown', useRemove);
+        popupElementCard.removeEventListener('click', useRemove);
+        popupElementProfile.removeEventListener('click', useRemove);
+        popupElementImg.removeEventListener('click', useRemove);
     }
 }
 
 function closesPopup(popup) {
     popup.classList.remove('popup_is-opened');
-};
-
-// function removeEventListener() {
-//     document.removeEventListener('keydown', removePopupUseEsc);
-// }
-
-function closesPopupClickOverlay(evt) {
-    const openPopups = evt.target;
-    if (evt.target === evt.currentTarget) {
-        closesPopup(openPopups);
-    }
 };
 
 function removePopupClick(evt) {
@@ -151,8 +148,5 @@ closePopupCard.addEventListener('click', removePopupClick);
 closePopupImg.addEventListener('click', removePopupClick);
 formPopup.addEventListener('submit', savePopup);
 formPopupCards.addEventListener('submit', addCards);
-popupElementCard.addEventListener('click', closesPopupClickOverlay);
-popupElementProfile.addEventListener('click', closesPopupClickOverlay);
-popupElementImg.addEventListener('click', closesPopupClickOverlay);
 
 renderNewCards();
