@@ -56,7 +56,15 @@ function removePopup(popup) {
 
 function closesPopup(popup) {
     popup.classList.remove('popup_is-opened');
-};
+    const removedRedLine = Array.from(document.querySelectorAll('.popup__input'));
+    removedRedLine.forEach(redLine => {
+        redLine.classList.remove('popup__input_state_invalid');
+    });
+    const removedSpanText = Array.from(document.querySelectorAll('.error'));
+    removedSpanText.forEach(spanText => {
+        spanText.textContent = "";
+    });
+}
 
 function removePopupClick(evt) {
     const opensPopup = evt.target.closest('.popup_is-opened');
@@ -141,7 +149,6 @@ popupOpenCard.addEventListener('click', () => {
     inputLink.value = '';
     openIsPopup(popupElementCard);
 });
-
 
 closePopupProfile.addEventListener('click', removePopupClick);
 closePopupCard.addEventListener('click', removePopupClick);
