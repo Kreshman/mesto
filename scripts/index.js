@@ -36,22 +36,23 @@ function openIsPopup(popup) {
 }
 
 function removePopupUseEsc(popup) {
-    document.addEventListener('keydown', function (evt) {
+    document.addEventListener('keydown', useEsc);
+    function useEsc(evt) { 
         const esc = 27;
         if (evt.keyCode === esc) {
             closesPopup(popup);
         }
-    removeEventListener(popup);
-    });
+    document.removeEventListener('keydown', useEsc);
+    }
 }
 
 function closesPopup(popup) {
     popup.classList.remove('popup_is-opened');
 };
 
-function removeEventListener(popup) {
-    document.removeEventListener('keydown', removePopupUseEsc);
-}
+// function removeEventListener() {
+//     document.removeEventListener('keydown', removePopupUseEsc);
+// }
 
 function closesPopupClickOverlay(evt) {
     const openPopups = evt.target;
