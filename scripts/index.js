@@ -14,7 +14,7 @@ const profileElementFirstname = document.querySelector('.profile__title');
 const profileElementText = document.querySelector('.profile__subtitle');
 const popupIdName = document.getElementById('name');
 const popupIdText = document.getElementById('text');
-const profileForm = document.querySelector('.popup__form');
+const profileCardForm = document.querySelector('.popup__form');
 const formPopupCards = document.querySelector('.popup-editadd__form');
 const itemTemplate = document.querySelector('.item_template');
 const cardsElements = document.querySelector('.elements');
@@ -89,9 +89,9 @@ function addNewCard() {
     }
     renderCard(newCard);
 }
-
-function buttonDisabled() {
-    const saveButtonElements = Array.from(document.querySelectorAll('.popup__save'));
+// ***
+function disabledButton(formPopupCards) {
+    const saveButtonElements = Array.from(formPopupCards.querySelectorAll('.popup__save'));
     saveButtonElements.forEach(button => {
         button.classList.add('popup__save_state_invalid');
         button.disabled = true;
@@ -101,11 +101,11 @@ function buttonDisabled() {
 //колбек самбита добавления карточек
 function addCards(event) {
     event.preventDefault();
+    addNewCard();
     inputName.value = '';
     inputLink.value = '';
-    addNewCard();
     closePopup(popupElementCard);
-    buttonDisabled();
+    disabledButton(formPopupCards);
 }
 
 function renderCard(element) {
@@ -139,13 +139,13 @@ function renderOpenPopupImg(event) {
     popupImgText.textContent = event.target.alt;
     openPopup(popupElementImg);
 }
-
-function removeError() {
-    const removedRedLine = Array.from(document.querySelectorAll('.popup__input'));
+// ***
+function removeError(profileCardForm) {
+    const removedRedLine = Array.from(profileCardForm.querySelectorAll('.popup__input'));
     removedRedLine.forEach(redLine => {
         redLine.classList.remove('popup__input_state_invalid');
     });
-    const removedSpanText = Array.from(document.querySelectorAll('.error'));
+    const removedSpanText = Array.from(profileCardForm.querySelectorAll('.error'));
     removedSpanText.forEach(spanText => {
         spanText.textContent = "";
     });
@@ -155,7 +155,7 @@ function removeError() {
 popupOpenProfile.addEventListener('click', () => {
     popupIdName.value = profileElementFirstname.textContent;
     popupIdText.value = profileElementText.textContent;
-    removeError()
+    removeError(profileCardForm);
     openPopup(popupElementProfile);
 });
 
@@ -166,7 +166,7 @@ popupOpenCard.addEventListener('click', () => {
 closePopupProfile.addEventListener('click', removePopupClick);
 closePopupCard.addEventListener('click', removePopupClick);
 closePopupImg.addEventListener('click', removePopupClick);
-profileForm.addEventListener('submit', handleProfileFormSubmit);
+profileCardForm.addEventListener('submit', handleProfileFormSubmit);
 formPopupCards.addEventListener('submit', addCards);
 
 renderNewCards();
