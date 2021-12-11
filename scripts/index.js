@@ -90,12 +90,10 @@ function addNewCard() {
     renderCard(newCard);
 }
 // ***
-function disabledButton(formPopupCards) {
-    const saveButtonElements = Array.from(formPopupCards.querySelectorAll('.popup__save'));
-    saveButtonElements.forEach(button => {
-        button.classList.add('popup__save_state_invalid');
-        button.disabled = true;
-    })
+function disableButton(formPopupCards) {
+    const saveButtonElements = formPopupCards.querySelector('.popup__save');
+    saveButtonElements.classList.add('popup__save_state_invalid');
+    saveButtonElements.disabled = true;
 };
 
 //колбек самбита добавления карточек
@@ -105,7 +103,7 @@ function addCards(event) {
     inputName.value = '';
     inputLink.value = '';
     closePopup(popupElementCard);
-    disabledButton(formPopupCards);
+    disableButton(formPopupCards);
 }
 
 function renderCard(element) {
