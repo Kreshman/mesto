@@ -9,7 +9,7 @@ const popupElementImg = document.querySelector('.popupimg');
 // button элементы для открытия попапа
 const popupOpenProfile = document.querySelector('.profile__edit');
 const popupOpenCard = document.querySelector('.profile__add');
-const popupOpenImg = document.querySelector('.elements__photo');
+// const popupOpenImg = document.querySelector('.elements__photo');
 // button элемент для закрытия попапа
 const closePopupProfile = document.querySelector('.popup__close-profile');
 const closePopupCard = document.querySelector('.popup__close-card');
@@ -165,6 +165,7 @@ popupOpenProfile.addEventListener('click', () => {
     popupIdText.value = profileElementText.textContent;
     removeError(profileCardForm);
     openPopup(popupElementProfile);
+    profileFormValidation.disableButton();
 });
 
 popupOpenCard.addEventListener('click', () => {

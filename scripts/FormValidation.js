@@ -18,7 +18,7 @@ export default class FormValidation {
             this._addListenersInput(input);
         });
         this._formSelector.addEventListener('input', () => {
-            this._handleFormInput();
+            this._buttonToggle();
         });
         this._buttonToggle();
     }
@@ -28,9 +28,9 @@ export default class FormValidation {
             this._handleFieldValidation(input, errorContainer);
         });
     }
-    _handleFormInput(){
-        this._buttonToggle();
-    }
+    // _handleFormInput(){
+    //     this._buttonToggle();
+    // }
     _buttonToggle(){
         const button = this._formSelector.querySelector(this._submitButtonSelector);
         const isFormInvalid = !this._formSelector.checkValidity();
