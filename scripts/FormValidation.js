@@ -28,9 +28,6 @@ export default class FormValidation {
             this._handleFieldValidation(input, errorContainer);
         });
     }
-    // _handleFormInput(){
-    //     this._buttonToggle();
-    // }
     _buttonToggle(){
         const button = this._formSelector.querySelector(this._submitButtonSelector);
         const isFormInvalid = !this._formSelector.checkValidity();
