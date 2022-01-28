@@ -14,14 +14,6 @@ export default class Card {
         this.delete = this._card.querySelector('.elements__delete')
         this.title = this._card.querySelector('.elements__title')
     }
-    // _getTemplate() {
-    //     const cardElement = document
-    //         .querySelector(this._cardSelector)
-    //         .content
-    //         .querySelector('.elements__element')
-    //         .cloneNode(true)
-    //     return cardElement;
-    // } 
     createCard() {
         this._element = this._card;
         this.photo.src = this._image;

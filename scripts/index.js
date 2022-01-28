@@ -31,6 +31,7 @@ const cardFormValidation = new FormValidation(validationObj, formPopupCards);
 function openPopup(popup) {
     popup.classList.add('popup_is-opened');
     addEventListenerPopup(popup);
+    formPopupCards.reset();
 }
 
 function addEventListenerPopup(popup) {
@@ -61,7 +62,6 @@ function clickOverlay(evt) {
 function closePopup(popup) {
     popup.classList.remove('popup_is-opened');
     removeEventListenerPopup(popup);
-    formPopupCards.reset();
 }
 
 function removePopupClick(evt) {
