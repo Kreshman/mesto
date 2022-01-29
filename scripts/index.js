@@ -31,7 +31,6 @@ const cardFormValidation = new FormValidation(validationObj, formPopupCards);
 function openPopup(popup) {
     popup.classList.add('popup_is-opened');
     addEventListenerPopup(popup);
-    formPopupCards.reset();
 }
 
 function addEventListenerPopup(popup) {
@@ -125,8 +124,9 @@ popupOpenProfile.addEventListener('click', () => {
 
 popupOpenCard.addEventListener('click', () => {
     openPopup(popupElementCard);
+    formPopupCards.reset();
     cardFormValidation.clearErrorValidate();
-    cardFormValidation.disableButton();
+    cardFormValidation.toggleButtonState();
 });
 
 closePopupProfile.addEventListener('click', removePopupClick);
