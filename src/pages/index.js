@@ -1,7 +1,12 @@
-import FormValidation from "./FormValidation.js";
-import { validationObj } from "./validate.js";
-import Card from "./Card.js";
-import { initialCards } from "./initial-cards.js";
+import './index.css';
+import Section from "../scripts/section.js";
+import FormValidation from "../scripts/FormValidation.js";
+import { validationObj } from "../scripts/validate.js";
+import Card from "../scripts/Card.js";
+import { initialCards } from "../scripts/initial-cards.js";
+import PopupWithImage from "../scripts/PopupWithImage.js";
+import PopupWithForm from "../scripts/PopupWithForm.js";
+import UserInfo from "../scripts/UserInfo.js";
 // Добавление модификатора селектору
 const popupElementProfile = document.querySelector('.popup-edit');
 const popupElementCard = document.querySelector('.popup-editadd');
@@ -115,10 +120,10 @@ function renderOpenPopupImg(event) {
 
 // Слушатели событий
 popupOpenProfile.addEventListener('click', () => {
+    profileFormValidation.disableButton();
     popupIdName.value = profileElementFirstname.textContent;
     popupIdText.value = profileElementText.textContent;
     openPopup(popupElementProfile);
-    profileFormValidation.disableButton();
     profileFormValidation.clearErrorValidate();
 });
 
