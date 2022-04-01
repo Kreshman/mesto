@@ -1,12 +1,12 @@
 import './index.css';
-import Section from "../scripts/section.js";
-import FormValidation from "../scripts/FormValidation.js";
-import { validationObj } from "../scripts/validate.js";
-import Card from "../scripts/Card.js";
-import { initialCards } from "../scripts/initial-cards.js";
-import PopupWithImage from "../scripts/PopupWithImage.js";
-import PopupWithForm from "../scripts/PopupWithForm.js";
-import UserInfo from "../scripts/UserInfo.js";
+import Section from "../components/section.js";
+import FormValidation from "../components/FormValidation.js";
+import { validationObj } from "../components/validate.js";
+import Card from "../components/Card.js";
+import { initialCards } from "../components/initial-cards.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import UserInfo from "../components/UserInfo.js";
 // Добавление модификатора селектору
 const popupElementProfile = document.querySelector('.popup-edit');
 const popupElementCard = document.querySelector('.popup-editadd');
