@@ -7,8 +7,8 @@ export default class UserInfo {
         const userData = { name: this._name.textContent, text: this._job.textContent };
         return userData;
     };
-    setUserInfo(formdata) {
-        this._name.textContent = formdata.name;
-        this._job.textContent = formdata.text;
+    setUserInfo(formData) {
+        this._name.textContent = formData.name;
+        this._job.textContent = formData.text;
     };
 }
